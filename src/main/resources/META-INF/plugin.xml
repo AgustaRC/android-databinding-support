@@ -1,0 +1,40 @@
+<idea-plugin>
+    <id>com.github.agustarc.databinding.android-databinding-support</id>
+    <version>0.0.1</version>
+    <name>Android Databinding Support</name>
+    <vendor email="joongwon100@gmail.com" url="https://github.com/AgustaRC">AgustaRC</vendor>
+
+    <description><![CDATA[Intellij plugin that support Android Data Binding Library]]>
+    </description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html on how to target different products -->
+    <depends>com.intellij.modules.lang</depends>
+
+    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+    <idea-version since-build="IC-181" until-build="IC-181.*"/>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <intentionAction>
+            <className>com.github.agustarc.databinding.intentions.AddDataTagIntention</className>
+            <category>Android</category>
+        </intentionAction>
+        <intentionAction>
+            <className>com.github.agustarc.databinding.intentions.ConvertToDatabindingIntention</className>
+            <category>Android</category>
+        </intentionAction>
+    </extensions>
+
+    <actions>
+        <action id="CreateDatabindingLayout"
+                class="com.github.agustarc.databinding.actions.CreateDatabindingLayoutAction"
+                text="Databinding Layout" icon="/icons/xml.svg">
+            <add-to-group group-id="NewGroup" anchor="first"/>
+        </action>
+
+        <action id="ConvertToDatabindingLayout"
+                class="com.github.agustarc.databinding.actions.ConvertToDatabindingLayoutAction"
+                text="Convert to Databinding Layout" icon="/icons/xml.svg">
+            <add-to-group group-id="NewGroup" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
